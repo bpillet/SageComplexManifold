@@ -1,4 +1,4 @@
-Class: ComplexManifold(OpenDomain):
+class: ComplexManifold(OpenDomain):
   def __init__(self, dim, name, latexname=None, start_index=0):
   def _repr_(self):
   def
@@ -19,7 +19,7 @@ class ComplexLineManifold(ComplexManifold, UniqueRepresentation):
   def _repr_(self):
     return "field C of complex numbers"
 
-Class: ComplexPlanManifold(Manifold, UniqueRepresentation):
+class: ComplexPlaneManifold(Manifold, UniqueRepresentation):
 
   def __init__(self):
     from chart import Chart
