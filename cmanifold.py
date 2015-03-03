@@ -18,22 +18,7 @@ class ComplexManifold(OpenDomain):
     n=self.dimension()
     M=Manifold(2*n, 'M')
     M.domains = self.domains
-    return M
-
-class AlmostComplexManifold(Manifold):
-  def __init__(self, M, I):
-    self.manifold = M
-    if not I.type() == (1,1):
-	raise TypeError("The almost-complex structure must be of type (1,1)")
-    if not I.contract(I,1):
-	raise TypeError("The tensor of structure must square to minus identity")
-    self.acstruct = I
-
-  def nijenhuis_tensor(self):
-    return self.acstruct
-  def is_integrable(self):
-    return True
-    
+    return M    
 
 class ComplexLineManifold(ComplexManifold, UniqueRepresentation):
 
