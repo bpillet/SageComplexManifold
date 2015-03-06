@@ -18,6 +18,7 @@ class ComplexManifold(OpenDomain):
     n=self.dimension()
     M=Manifold(2*n, 'M')
     M.domains = self.domains
+    M.chart = self.chart ???
     return M    
 
 class ComplexLineManifold(ComplexManifold, UniqueRepresentation):
@@ -28,12 +29,3 @@ class ComplexLineManifold(ComplexManifold, UniqueRepresentation):
     CChart(self, 'z_complexline')
   def _repr_(self):
     return "field C of complex numbers"
-
-class ComplexPlaneManifold(Manifold, UniqueRepresentation):
-
-  def __init__(self):
-    from chart import Chart
-    Manifold.__init__(self, 2, name="Plane C", latex_name=r"\CC")
-    Chart(self, 'x y')
-  def _repr_(self):
-    return "Plane of points with complex affixe"
