@@ -22,6 +22,14 @@ class AlmostComplexManifold(Manifold):
         		description += "'%s' " % self.almost_complex_structure._name
 	        return Manifold._repr_(M) + description
 
+	def __eq__(self,autre):
+        	r"""
+        	Check for equality, of the underlying real manifolds (uniquely represented) and then of almost complex structures.
+        	"""
+		if Manifold.__eq__(self,autre):
+			return (self.almost_complex_structure == autre.almost_complex_structure)
+		return False
+
 	def almost_complex_structure(self):
         	r"""
         	Returns the tensor of almost-complex structure.
